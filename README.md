@@ -7,8 +7,9 @@ A simple project using Lucee Command Box and MySQL Docker
 * Version 5.7 linux/x86_64
 * Root password is `mysqlpass`. To change it, change the `MYSQL_ROOT_PASSWORD`
   in the `docker-compose.yml` file.
-* Default databasename is `mydb`. To change it, change the `MYSQL_DATABASE`
+* Default database name is `mydb`. To change it, change the `MYSQL_DATABASE`
   in the `docker-compose.yml` file.
+* Create a directory called `volume` inside `./mysql` to maintain database persistence
 
 ### Lucee
 
