@@ -1,0 +1,14 @@
+{
+    "cfconfig" : {
+        "server" : "/var/boxconfig/config.json",
+        "web" : "/var/boxconfig/config.json",
+        "profile" : "development",
+        "adminPassword": "123456"
+    },
+    "CFConfigFile" : "/var/boxconfig/config.json",
+    "profile": "development",
+    "adminPassword": "123456",
+    "web": {
+        "blockCFAdmin": false
+    }
+}

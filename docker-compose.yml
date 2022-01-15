@@ -1,0 +1,43 @@
+version: '3.4'
+
+services:
+  db:
+      image: mysql:5.7
+      platform: linux/x86_64
+      environment:
+        MYSQL_ROOT_PASSWORD: "mysqlpass"
+        MYSQL_DATABASE: "mydb"
+      ports:
+        - "3306:3306"
+      volumes:
+        - ./mysql/volume:/var/lib/mysql
+        - ./mysql/my.cnf:/etc/mysql/my.cnf
+        - ./mysql/my.cnf:/etc/mysql/conf.d/mysql.cnf
+      networks:
+        - mynet
+
+  lucee:
+    platform: linux/arm64
+    build: 
+      dockerfile: ./lucee/Dockerfile
+      context: .
+    environment:
+      VIRTUAL_HOST: lucee.local
+    restart: always  
+    volumes:
+      - ./lucee/app:/app
+      - ./lucee/boxconfig/config.json:/var/boxconfig/config.json
+      - ./lucee/boxconfig/server.json:/app/server.json
+    ports: 
+      - "8080:8080"
+      - "8053:80"
+    depends_on:
+      - db
+    networks:
+      - mynet  
+    links:
+      - "db:database"
+
+networks:
+    mynet:
+        driver: "bridge"
