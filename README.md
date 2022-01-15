@@ -13,7 +13,7 @@ A simple project using Lucee Command Box and MySQL Docker
 
 ### Lucee
 
-* Version 5.3.8.206
+* Version 5.3.8.206 linux/arm64 (for MacOS)
 * Change the `config.json` in the `lucee/boxconfig` folder with your settings
 * The same is valid for the `server.json` file 
 
